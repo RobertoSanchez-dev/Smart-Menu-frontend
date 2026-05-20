@@ -21,7 +21,7 @@ export type Plato = {
   price: string | null
   category?: string
   ingredients?: IngredienteDePlato[]
-  ai_why?: string
+  is_active?: boolean
 }
 
 export type SeccionCarta = {
@@ -42,4 +42,11 @@ export type OrderItem = {
   price: string | null
   category?: string
   ai_why?: string
+}
+
+export type AIRecomendacion = {
+  name: string
+  description?: string
+  why?: string
+  price?: number
 }

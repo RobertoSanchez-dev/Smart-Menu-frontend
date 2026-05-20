@@ -1,11 +1,9 @@
+import { createApp } from 'vue'
+import { createPinia } from 'pinia'
+import 'bootstrap/dist/css/bootstrap.min.css'
+import 'bootstrap'
 import './style.css'
-import { renderPublicView } from './components/publicView'
-import { renderChefView } from './components/chefView'
+import App from './App.vue'
+import router from './router'
 
-const currentPath = window.location.pathname.replace(/\/+$/, '') || '/'
-
-if (currentPath === '/cocina') {
-  renderChefView()
-} else {
-  renderPublicView()
-}
+createApp(App).use(createPinia()).use(router).mount('#app')
