@@ -362,16 +362,21 @@ code {
 }
 
 .carta-row--one {
-  max-width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+  align-items: start;
 }
 
-.carta-row--one .carta-section {
-  max-width: 100%;
+.carta-row--bebidas {
+  max-width: 640px;
 }
 
-.carta-row--bebidas .carta-section {
-  max-width: 480px;
-  margin: 0 auto;
+@media (max-width: 768px) {
+  .carta-row--one {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
 }
 
 .carta-col {
@@ -554,27 +559,73 @@ code {
   cursor: pointer;
 }
 
+.ingredients-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.ingredient-counter {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--accent);
+  min-width: 0;
+}
+
 .ingredients-list {
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  margin-top: 8px;
-  max-height: 360px;
-  overflow: auto;
+  gap: 16px;
+  margin-top: 4px;
+  max-height: 420px;
+  overflow-y: auto;
+  padding-right: 4px;
 }
 
-.ingredient-item {
+.ingredient-category-group {
   display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 8px 10px;
-  border-radius: 8px;
-  border: 1px solid rgba(148, 163, 184, 0.4);
-  cursor: pointer;
+  flex-direction: column;
+  gap: 6px;
+}
 
-  input {
-    margin: 0;
-  }
+.ingredient-category-label {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: #9b8d82;
+  margin: 0;
+}
+
+.ingredient-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.ingredient-chip {
+  padding: 5px 12px;
+  border-radius: 999px;
+  border: 1px solid #ddd6ce;
+  background: #fff;
+  color: #3d3630;
+  font-size: 13px;
+  font-family: var(--sans);
+  cursor: pointer;
+  transition: background 0.12s, border-color 0.12s, color 0.12s;
+  line-height: 1.4;
+}
+
+.ingredient-chip:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.ingredient-chip.is-selected {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
 }
 
 .recommendations {
